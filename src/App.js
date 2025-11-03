@@ -13,6 +13,14 @@ import {
   Form
 } from 'react-bootstrap';
 
+// Unsplash Source images using fixed photo IDs (from Unsplash search pages)
+// This gives stable, real photos suitable for a shoe boutique
+const SHOES = {
+  classic: 'https://source.unsplash.com/dwKiHoqqxk8/800x533', // white/orange shoes on box
+  red: 'https://source.unsplash.com/164_6wVEHfI/800x533',      // red sneaker
+  brown: 'https://source.unsplash.com/NOpsC3nWTzY/800x533'     // brown sneaker on yellow textile
+};
+
 function App() {
   // The App returns a React Fragment (<></>) wrapping a root div with className "App"
   // This satisfies the checkpoint requirement to use a React Fragment and a div.App
@@ -20,14 +28,14 @@ function App() {
     <>
       <div className="App">
         {/* Navigation bar using react-bootstrap */}
-        <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
+        <Navbar bg="light" variant="light" expand="lg" className="mb-4 border-bottom">
           <Container>
-            <Navbar.Brand href="#home">React JS Checkpoint</Navbar.Brand>
+            <Navbar.Brand href="#home">Boutique de Chaussures</Navbar.Brand>
             <Navbar.Toggle aria-controls="main-navbar" />
             <Navbar.Collapse id="main-navbar">
               <Nav className="ms-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
+                <Nav.Link href="#collections">Collections</Nav.Link>
+                <Nav.Link href="#trends">Tendances</Nav.Link>
                 <Nav.Link href="#contact">Contact</Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -35,36 +43,40 @@ function App() {
         </Navbar>
 
         <Container>
-          {/* Page heading */}
-          <h1 className="mb-4 text-center">Welcome to React + Bootstrap</h1>
+          {/* Page heading (shoe store) */}
+          <h1 className="mb-4 text-center">Marchez avec style</h1>
 
           {/* Card grid: 3 cards responsive using Row/Col */}
-          <Row xs={1} md={3} className="g-4 mb-5">
-            {[1, 2, 3].map((i) => (
-              <Col key={i}>
+          <Row id="collections" xs={1} md={3} className="g-4 mb-3">
+            {[
+              { id: 1, title: 'Baskets classiques', img: SHOES.classic, desc: 'Confort et style au quotidien.' },
+              { id: 2, title: 'Sneakers rouges', img: SHOES.red, desc: 'Une touche de couleur pour vos looks.' },
+              { id: 3, title: 'Baskets marron', img: SHOES.brown, desc: 'Tons chauds et design épuré.' }
+            ].map((card) => (
+              <Col key={card.id}>
                 <Card className="h-100 shadow-sm">
-                  {/* Sample image placeholder */}
-                  <Card.Img
-                    variant="top"
-                    src={`https://placehold.co/600x400?text=Card+${i}`}
-                    alt={`Card ${i}`}
-                  />
+                  {/* Local image displayed on top of each card */}
+                  <Card.Img variant="top" src={card.img} alt={card.title} />
                   <Card.Body>
-                    <Card.Title>Card Title {i}</Card.Title>
+                    <Card.Title>{card.title}</Card.Title>
                     <Card.Text>
-                      This is a simple card using react-bootstrap components.
-                      You can customize the content as needed.
+                      {card.desc}
                     </Card.Text>
-                    <Button variant="primary">Learn More</Button>
+                    <Button variant="primary">Acheter</Button>
                   </Card.Body>
                 </Card>
               </Col>
             ))}
           </Row>
 
-          {/* Simple contact form to satisfy the "Use of Forms" criterion */}
+          {/* Unsplash attribution */}
+          <p className="text-muted small mb-5">
+            Photos via <a href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a> (IDs: dwKiHoqqxk8, 164_6wVEHfI, NOpsC3nWTzY).
+          </p>
+
+          {/* Fashion-themed form to satisfy the "Use of Forms" criterion */}
           <section id="contact" className="mb-5">
-            <h2 className="mb-3">Get in touch</h2>
+            <h2 className="mb-3">Book a Style Session</h2>
             {/* Form components from react-bootstrap */}
             <Form onSubmit={(e) => e.preventDefault() /* prevent page reload for demo */}>
               <Row className="mb-3">
@@ -78,17 +90,30 @@ function App() {
                 </Form.Group>
               </Row>
 
+              {/* Additional field specific to fashion theme */}
+              <Form.Group className="mb-3" controlId="formStylePref">
+                <Form.Label>Style Preference</Form.Label>
+                <Form.Select defaultValue="">
+                  <option value="" disabled>Select your style</option>
+                  <option>Casual</option>
+                  <option>Formal</option>
+                  <option>Streetwear</option>
+                  <option>Minimalist</option>
+                  <option>Vintage</option>
+                </Form.Select>
+              </Form.Group>
+
               <Form.Group className="mb-3" controlId="formSubject">
                 <Form.Label>Subject</Form.Label>
-                <Form.Control type="text" placeholder="Subject" />
+                <Form.Control type="text" placeholder="Subject (e.g., Outfit advice)" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formMessage">
                 <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={4} placeholder="Write your message..." />
+                <Form.Control as="textarea" rows={4} placeholder="Tell us about the occasion, sizes, or colors you like..." />
               </Form.Group>
 
-              <Button variant="primary" type="submit">Send</Button>
+              <Button variant="primary" type="submit">Request Session</Button>
             </Form>
           </section>
         </Container>

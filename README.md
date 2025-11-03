@@ -18,6 +18,16 @@ In the project directory:
 	- `npm start`
 3. Open http://localhost:3000 in your browser.
 
+### Images
+
+The collection cards use real shoe photos from Unsplash via the Source API with fixed photo IDs for stability, for example:
+
+- https://source.unsplash.com/dwKiHoqqxk8/800x533
+- https://source.unsplash.com/164_6wVEHfI/800x533
+- https://source.unsplash.com/NOpsC3nWTzY/800x533
+
+An attribution link to Unsplash is included in the UI. You can replace IDs with your preferred photos from Unsplash (copy the ID from the photo page URL).
+
 ## Submission (GitHub)
 
 1. Initialize a Git repository if needed: `git init`
