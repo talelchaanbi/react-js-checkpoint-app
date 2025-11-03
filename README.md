@@ -1,113 +1,57 @@
-# React JS Checkpoint
+## React JS Checkpoint – Shoe Boutique
 
-This project implements the checkpoint requirements using Create React App and react-bootstrap:
+Application React (Create React App) avec UI moderne et ergonomique basée sur Bootstrap.
 
-- Bootstrap added via `react-bootstrap` and `bootstrap` CSS
-- React Fragment wrapping a root `<div class="App">`
-- A responsive Navbar, a page heading, and 3 Cards
-- A simple contact Form (Bootstrap) to satisfy the "Use of Forms" criterion
-- Code includes inline comments to explain key parts
+### Fonctionnalités clés
 
-## How to Run
+- Navbar fixe et transparente, effet glass; devient lisible/opaque au scroll.
+- Thème clair/sombre (toggle), persistant via localStorage.
+- Bascule de langue FR/EN (texte, labels UI).
+- Hero Carousel avec images réelles (Unsplash) et captions.
+- Grille de 3 cartes produit responsive.
+- Formulaire de contact stylé (Bootstrap) avec champs utiles au thème.
+- Effet “reveal on scroll”.
+- Footer sobre et responsive avec liens + contact, compatible dark mode.
 
-In the project directory:
+### Démarrer
 
-1. Install dependencies (if not already):
+Dans le dossier projet:
+
+1) Installer les dépendances:
 	- `npm install`
-2. Start the development server:
+2) Lancer en développement:
 	- `npm start`
-3. Open http://localhost:3000 in your browser.
+3) Ouvrir http://localhost:3000
 
-### Images
+### Tests et build
 
-The collection cards use real shoe photos from Unsplash via the Source API with fixed photo IDs for stability, for example:
+- Lancer les tests:
+  - `npm test`
+  - Le test vérifie la présence du titre principal.
+- Build production:
+  - `npm run build`
 
-- https://source.unsplash.com/dwKiHoqqxk8/800x533
-- https://source.unsplash.com/164_6wVEHfI/800x533
-- https://source.unsplash.com/NOpsC3nWTzY/800x533
+### Images et crédits
 
-An attribution link to Unsplash is included in the UI. You can replace IDs with your preferred photos from Unsplash (copy the ID from the photo page URL).
+Les images proviennent d’Unsplash. Un lien d’attribution est présent dans l’application. Vous pouvez changer les URLs dans `src/App.js` (constante `SHOES` et images du carousel).
 
-## Submission (GitHub)
+### Nettoyage / Fichiers non utilisés
 
-1. Initialize a Git repository if needed: `git init`
-2. Add files: `git add .`
-3. Commit: `git commit -m "React JS Checkpoint initial"`
-4. Create a new GitHub repository named `REACT JS Checkpoint` (or as specified by your instructor)
-5. Add the remote and push:
-	- `git remote add origin <your-repo-url>`
-	- `git branch -M main`
-	- `git push -u origin main`
+- `src/logo.svg` n’est pas utilisé par l’app.
+- Les icônes par défaut `public/logo192.png` et `public/logo512.png` ne sont pas référencées (le projet utilise `public/logo.png`).
+
+Vous pouvez supprimer ces fichiers pour alléger le dépôt. L’application n’en dépend pas.
+
+### Dépôt / push
+
+1) Vérifier le projet localement:
+	- `npm test`
+	- `npm run build`
+2) Commit & push:
+	- `git add .`
+	- `git commit -m "refactor: UI pro + footer + navbar fixed + cleanup"`
+	- `git push origin main`
 
 ---
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Projet initialisé avec [Create React App](https://github.com/facebook/create-react-app).
