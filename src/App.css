@@ -69,6 +69,38 @@ body, .App {
   border-radius: 0.5rem;
 }
 
+/* Dark theme support */
+.dark-theme .App {
+  background: linear-gradient(180deg, #0b0f14 0%, #101827 100%);
+  color: #f2f4f8;
+}
+
+.dark-theme .navbar {
+  background-color: rgba(16, 24, 39, 0.8) !important;
+}
+
+.dark-theme .card {
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+.dark-theme .btn-primary {
+  background-color: #6d28d9;
+  border-color: #6d28d9;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity .6s ease, transform .6s ease;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
