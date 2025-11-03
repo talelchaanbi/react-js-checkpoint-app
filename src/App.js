@@ -10,15 +10,16 @@ import {
   Col,
   Card,
   Button,
-  Form
+  Form,
+  Carousel
 } from 'react-bootstrap';
 
 // Unsplash Source images using fixed photo IDs (from Unsplash search pages)
 // This gives stable, real photos suitable for a shoe boutique
 const SHOES = {
-  classic: 'https://source.unsplash.com/dwKiHoqqxk8/800x533', // white/orange shoes on box
-  red: 'https://source.unsplash.com/164_6wVEHfI/800x533',      // red sneaker
-  brown: 'https://source.unsplash.com/NOpsC3nWTzY/800x533'     // brown sneaker on yellow textile
+  classic: 'https://images.unsplash.com/photo-1651055183233-13e372fbfe51?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHdoaXRlJTJGb3JhbmdlJTIwc2hvZXMlMjBvbiUyMGJveHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500', // white/orange shoes on box
+  red: 'https://media.istockphoto.com/id/1276624783/photo/stylish-and-cool-boot.webp?a=1&b=1&s=612x612&w=0&k=20&c=jhhuhWTO8Ufg2h7FS7fc1EmtLX08iOz3BBBk4WJmcPM=',      // red sneaker
+  brown: 'https://media.istockphoto.com/id/1471122805/photo/pair-of-yellow-sneakers-on-yellow-background-copy-space.webp?a=1&b=1&s=612x612&w=0&k=20&c=JLwJE7qCU5x6gS1k01uNU2l3An-ZMFWThZYi9vOEZNw='     // brown sneaker on yellow textile
 };
 
 function App() {
@@ -41,6 +42,50 @@ function App() {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+
+        {/* Hero Carousel */}
+        <Carousel className="hero-carousel mb-4">
+          <Carousel.Item>
+            <img
+              src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODh8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200"
+              alt="Sneakers lifestyle"
+            />
+            <Carousel.Caption>
+              <h3>Nouvelles collections</h3>
+              <p>Des silhouettes modernes pour chaque look.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200"
+              alt="Baskets blanches"
+            />
+            <Carousel.Caption>
+              <h3>Essentiels blancs</h3>
+              <p>Indispensables et intemporels.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src="https://images.unsplash.com/photo-1462927114214-6956d2fddd4e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200"
+              alt="Chaussures en vitrine"
+            />
+            <Carousel.Caption>
+              <h3>Nouvelle vitrine</h3>
+              <p>Découvrez nos nouveautés en magasin.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src="https://images.unsplash.com/photo-1570464197285-9949814674a7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHNob2VzfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1200"
+              alt="Sneakers colorées"
+            />
+            <Carousel.Caption>
+              <h3>Couleurs & style</h3>
+              <p>Affirmez votre personnalité.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
 
         <Container>
           {/* Page heading (shoe store) */}
@@ -71,49 +116,49 @@ function App() {
 
           {/* Unsplash attribution */}
           <p className="text-muted small mb-5">
-            Photos via <a href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a> (IDs: dwKiHoqqxk8, 164_6wVEHfI, NOpsC3nWTzY).
+            Photos via <a href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a>.
           </p>
 
           {/* Fashion-themed form to satisfy the "Use of Forms" criterion */}
           <section id="contact" className="mb-5">
-            <h2 className="mb-3">Book a Style Session</h2>
+            <h2 className="mb-3">Réserver une séance de style</h2>
             {/* Form components from react-bootstrap */}
             <Form onSubmit={(e) => e.preventDefault() /* prevent page reload for demo */}>
               <Row className="mb-3">
                 <Form.Group as={Col} md="6" controlId="formName">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control type="text" placeholder="Your name" required />
+                  <Form.Label>Nom</Form.Label>
+                  <Form.Control type="text" placeholder="Votre nom" required />
                 </Form.Group>
                 <Form.Group as={Col} md="6" controlId="formEmail">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="name@example.com" required />
+                  <Form.Control type="email" placeholder="nom@example.com" required />
                 </Form.Group>
               </Row>
 
-              {/* Additional field specific to fashion theme */}
+              {/* Champ additionnel spécifique au thème */}
               <Form.Group className="mb-3" controlId="formStylePref">
-                <Form.Label>Style Preference</Form.Label>
+                <Form.Label>Préférence de style</Form.Label>
                 <Form.Select defaultValue="">
-                  <option value="" disabled>Select your style</option>
+                  <option value="" disabled>Sélectionnez votre style</option>
                   <option>Casual</option>
-                  <option>Formal</option>
+                  <option>Formel</option>
                   <option>Streetwear</option>
-                  <option>Minimalist</option>
+                  <option>Minimaliste</option>
                   <option>Vintage</option>
                 </Form.Select>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formSubject">
-                <Form.Label>Subject</Form.Label>
-                <Form.Control type="text" placeholder="Subject (e.g., Outfit advice)" />
+                <Form.Label>Objet</Form.Label>
+                <Form.Control type="text" placeholder="Objet (ex: conseil tenue)" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formMessage">
                 <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={4} placeholder="Tell us about the occasion, sizes, or colors you like..." />
+                <Form.Control as="textarea" rows={4} placeholder="Parlez-nous de l’occasion, des tailles ou des couleurs que vous aimez..." />
               </Form.Group>
 
-              <Button variant="primary" type="submit">Request Session</Button>
+              <Button variant="primary" type="submit">Envoyer la demande</Button>
             </Form>
           </section>
         </Container>
